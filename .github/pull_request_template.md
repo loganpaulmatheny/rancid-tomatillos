@@ -1,4 +1,6 @@
-### Change:
+### Summary:
+- File(s) added/changed:
+- Description:
 
 ### Type of change
 
@@ -13,7 +15,4 @@
 - [ ]  Code needs to be tested
 - [ ]  All tests are passing
 
-### Summary:
 
-- File(s) added/changed:
-- Description:
