@@ -1,0 +1,5 @@
+.movie-poster {
+  width: 12rem;
+  height: 15.8125rem;
+  flex-shrink: 0;
+}
