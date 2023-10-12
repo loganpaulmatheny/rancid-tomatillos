@@ -1,10 +1,8 @@
 import "./MovieCard.css";
 
-function MovieCard({ imagePath, title, rating, viewMovie }) {
-  console.log(imagePath, rating);
-  console.log("getting here");
+function MovieCard({ imagePath, title, rating, id, viewMovie }) {
   return (
-    <div className="movie-card" onClick={() => viewMovie()}>
+    <div className="movie-card" onClick={() => viewMovie(id)}>
       <img
         className="movie-poster"
         src={imagePath}
