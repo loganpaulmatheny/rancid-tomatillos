@@ -27,6 +27,10 @@ function App() {
     setMovieInfo(singleMovie);
   }
 
+  function viewAllMovies() {
+    setViewMovie(0);
+  }
+
   return (
     <main className="App">
       <nav>
@@ -35,7 +39,11 @@ function App() {
       {!viewMovies ? (
         <Movies moviesData={movies} viewMovie={viewMovie} />
       ) : (
-        <MovieInfo movieInfo={movieInfo[0]} key={movieInfo.id} />
+        <MovieInfo
+          movieInfo={movieInfo[0]}
+          key={movieInfo.id}
+          viewAllMovies={viewAllMovies}
+        />
       )}
     </main>
   );
