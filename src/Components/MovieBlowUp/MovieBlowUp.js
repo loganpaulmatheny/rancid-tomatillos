@@ -1,10 +1,15 @@
-import './MovieBlowUp.css'
+import "./MovieBlowUp.css";
+import PropTypes from "prop-types";
 
-function MovieBlowUp({movieBlowUp, viewHome}) {
+function MovieBlowUp({ movieBlowUp, viewHome }) {
   return (
-    <div >
+    <div>
       <h2>{movieBlowUp.title}</h2>
-      <img className='movie-blowup-poster' src={movieBlowUp.poster_path} alt={`${movieBlowUp.title} poster`}/>
+      <img
+        className="movie-blowup-poster"
+        src={movieBlowUp.poster_path}
+        alt={`${movieBlowUp.title} poster`}
+      />
       <h3>Overview</h3>
       <p>{movieBlowUp.overview}</p>
       <ul>
@@ -13,9 +18,17 @@ function MovieBlowUp({movieBlowUp, viewHome}) {
       </ul>
       <button onClick={() => viewHome()}>Return to all movies</button>
     </div>
-  )
+  );
 }
 
-export default MovieBlowUp 
+MovieBlowUp.propTypes = {
+  movieBlowUp: PropTypes.shape({
+    title: PropTypes.string,
+    poster_path: PropTypes.string,
+    overview: PropTypes.string,
+    average_rating: PropTypes.number,
+    release_date: PropTypes.object,
+  }),
+};
 
-
+export default MovieBlowUp;
