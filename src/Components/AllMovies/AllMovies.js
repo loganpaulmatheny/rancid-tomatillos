@@ -1,7 +1,7 @@
 import './AllMovies.css'
 import MovieCard from '../MovieCards/MovieCards'
 
-function AllMovies({moviesData}) {
+function AllMovies({moviesData, viewMovieBlowUp}) {
   const movieCards = moviesData.map((movie) => {
     return (
       <MovieCard 
@@ -10,6 +10,7 @@ function AllMovies({moviesData}) {
         title={movie.title}
         id={movie.id}
         key={movie.id}
+        viewMovieBlowUp={viewMovieBlowUp}
       />
     )
   })

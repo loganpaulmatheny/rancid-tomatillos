@@ -1,8 +1,8 @@
 import './MovieCards.css'
 
-function MovieCard({imagePath, rating, title, id}) {
+function MovieCard({imagePath, rating, title, id, viewMovieBlowUp}) {
   return (
-    <figure className="poster-container">
+    <figure className="poster-container" onClick={() => viewMovieBlowUp(id)}>
       <img className="movie-poster" id={id} src={imagePath} alt={`${title} poster`}/>
       <p className="movie-title">{title}</p>
       <p className="movie-rating">{rating}</p>
