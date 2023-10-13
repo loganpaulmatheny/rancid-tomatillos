@@ -14,7 +14,7 @@ function App() {
     setMovies(movieData.movies);
   }
 
-  useEffect(() => getMovies());
+  useEffect(() => getMovies(), []);
 
   function viewMovie(id) {
     console.log("You clicked a movie - time to change state!");
@@ -41,7 +41,7 @@ function App() {
       ) : (
         <MovieInfo
           movieInfo={movieInfo[0]}
-          key={movieInfo.id}
+          key={movieInfo[0].id}
           viewAllMovies={viewAllMovies}
         />
       )}
