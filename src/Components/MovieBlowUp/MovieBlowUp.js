@@ -23,11 +23,11 @@ function MovieBlowUp({ movieBlowUp, viewHome }) {
 
 MovieBlowUp.propTypes = {
   movieBlowUp: PropTypes.shape({
-    title: PropTypes.string,
-    poster_path: PropTypes.string,
-    overview: PropTypes.string,
-    average_rating: PropTypes.number,
-    release_date: PropTypes.object,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
   }),
 };
 

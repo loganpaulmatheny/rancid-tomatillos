@@ -17,11 +17,11 @@ function MovieCard({ imagePath, rating, title, id, viewMovieBlowUp }) {
 }
 
 MovieCard.propTypes = {
-  imagePath: PropTypes.string,
-  rating: PropTypes.number,
-  title: PropTypes.string,
-  id: PropTypes.number,
-  viewMovieBlowUp: PropTypes.func,
+  imagePath: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  viewMovieBlowUp: PropTypes.func.isRequired,
 };
 
 export default MovieCard;
