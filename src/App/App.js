@@ -27,10 +27,9 @@ function App() {
       return movie.id === id;
     });
 
-    getSingleMovie(singleMovie.id)
-      .then((singleMovieData) => {
-        setMovieBlowUp(singleMovieData.movie);
-      })
+    getSingleMovie(singleMovie.id).then((singleMovieData) => {
+      setMovieBlowUp(singleMovieData.movie);
+    });
   };
 
   const viewHome = () => {
