@@ -1,5 +1,15 @@
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  gap: 10px;
+}
+
+
 .movie-poster {
   width: 12rem;
   height: 15.8125rem;
-  flex-shrink: 0;
+  border-radius: 6px;
 }

@@ -11,7 +11,7 @@ function MovieCard({ imagePath, rating, title, id, viewMovieBlowUp }) {
         alt={`${title} poster`}
       />
       <p className="movie-title">{title}</p>
-      <p className="movie-rating">{rating}</p>
+      <p className="movie-rating">{rating}★</p>
     </figure>
   );
 }
