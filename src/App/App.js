@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "../App/App.css";
 // import movieData from "../Data/movieData";
-
-import { getAllMovies, getSingleMovie } from "../apiCalls";
+import { getAllMovies } from "../apiCalls";
 
 import AllMovies from "../Components/AllMovies/AllMovies";
 import MovieBlowUp from "../Components/MovieBlowUp/MovieBlowUp";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [movieBlowUp, setMovieBlowUp] = useState(false);
+  // const [movieBlowUp, setMovieBlowUp] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -27,23 +27,14 @@ function App() {
       );
   };
 
-  const viewMovieBlowUp = (id) => {
-    const singleMovie = movies.find((movie) => {
-      return movie.id === id;
-    });
+  // const handleSingleMovie = (id) => {
+  //   const singleMovie = movies.find((movie) => {
+  //     return movie.id === id;
+  //   });
 
-    getSingleMovie(singleMovie.id)
-      .then((singleMovieData) => {
-        setMovieBlowUp(singleMovieData.movie);
-      })
-      .catch(() =>
-        setError("Oops...that movie is rotten...try picking a different one")
-      );
-  };
-
-  const viewHome = () => {
-    setMovieBlowUp(false);
-  };
+  // const viewHome = () => {
+  //   setMovieBlowUp(false);
+  // };
 
   return (
     <main className="App">
@@ -51,15 +42,19 @@ function App() {
         <h1 className="title">Rancid Tomatillos</h1>
       </nav>
       {error && <h2>{error}</h2>}
-      {!movieBlowUp ? (
-        <AllMovies moviesData={movies} viewMovieBlowUp={viewMovieBlowUp} />
+      <Routes>
+        <Route path="/" element={<AllMovies moviesData={movies} />} />
+        <Route path="/movie/:id" element={<MovieBlowUp />} />
+      </Routes>
+      {/*!movieBlowUp ? (
+        <AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />
       ) : (
         <MovieBlowUp
           key={movieBlowUp.id}
           movieBlowUp={movieBlowUp}
           viewHome={viewHome}
         />
-      )}
+      )*/}
     </main>
   );
 }

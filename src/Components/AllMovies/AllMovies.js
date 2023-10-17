@@ -2,7 +2,7 @@ import "./AllMovies.css";
 import MovieCard from "../MovieCards/MovieCards";
 import PropTypes from "prop-types";
 
-function AllMovies({ moviesData, viewMovieBlowUp }) {
+function AllMovies({ moviesData, handleSingleMovie }) {
   const movieCards = moviesData.map((movie) => {
     return (
       <MovieCard
@@ -11,7 +11,7 @@ function AllMovies({ moviesData, viewMovieBlowUp }) {
         title={movie.title}
         id={movie.id}
         key={movie.id}
-        viewMovieBlowUp={viewMovieBlowUp}
+        // handleSingleMovie={handleSingleMovie}
       />
     );
   });
@@ -19,8 +19,7 @@ function AllMovies({ moviesData, viewMovieBlowUp }) {
 }
 
 AllMovies.propTypes = {
-  moviesData: PropTypes.array.isRequired,
-  viewMovieBlowUp: PropTypes.func.isRequired,
+  moviesData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default AllMovies;
