@@ -4,12 +4,12 @@ const getAllMovies = () => {
   return fetch(root)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Get network request for all movies not ok");
+        throw new Error(`There was an error fetching all movies`);
       }
       return response.json();
     })
     .catch((error) => {
-      console.log(`Error fetching all movies ${error}`);
+      console.log(error);
     });
 };
 
@@ -18,12 +18,12 @@ const getSingleMovie = (id) => {
   return fetch(root)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Get network request for single movie not ok");
+        throw new Error("There was an error fetching a single movie");
       }
       return response.json();
     })
     .catch((error) => {
-      console.log(`Error fetching a single movie ${error}`);
+      console.log(error);
     });
 };
 
