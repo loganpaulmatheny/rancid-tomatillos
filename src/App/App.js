@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom"
 
 import "../App/App.css";
 // import movieData from "../Data/movieData";
@@ -10,7 +11,7 @@ import MovieBlowUp from "../Components/MovieBlowUp/MovieBlowUp";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [movieBlowUp, setMovieBlowUp] = useState(false);
+  // const [movieBlowUp, setMovieBlowUp] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -27,39 +28,44 @@ function App() {
       );
   };
 
-  const viewMovieBlowUp = (id) => {
-    const singleMovie = movies.find((movie) => {
-      return movie.id === id;
-    });
-
-    getSingleMovie(singleMovie.id)
+  // const handleSingleMovie = (id) => {
+  //   const singleMovie = movies.find((movie) => {
+  //     return movie.id === id;
+  //   });
+  const handleSingleMovie = (id) => {
+    getSingleMovie(id)
       .then((singleMovieData) => {
-        setMovieBlowUp(singleMovieData.movie);
+        console.log(singleMovieData)
+        return singleMovieData
       })
       .catch(() =>
         setError("Oops...that movie is rotten...try picking a different one")
       );
-  };
+    };
 
-  const viewHome = () => {
-    setMovieBlowUp(false);
-  };
+  // const viewHome = () => {
+  //   setMovieBlowUp(false);
+  // };
 
   return (
     <main className="App">
       <nav>
         <h1 className="title">Rancid Tomatillos</h1>
       </nav>
+      <Routes>
+        <Route path="/" element={<AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />}/>
+        <Route path="/movie/:id" element={<MovieBlowUp handleSingleMovie={handleSingleMovie}/>} />
+      </Routes>
       {error && <h2>{error}</h2>}
-      {!movieBlowUp ? (
-        <AllMovies moviesData={movies} viewMovieBlowUp={viewMovieBlowUp} />
+      {/*!movieBlowUp ? (
+        <AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />
       ) : (
         <MovieBlowUp
           key={movieBlowUp.id}
           movieBlowUp={movieBlowUp}
           viewHome={viewHome}
         />
-      )}
+      )*/}
     </main>
   );
 }
