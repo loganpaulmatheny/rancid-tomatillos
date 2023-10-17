@@ -1,12 +1,12 @@
 import "./MovieCards.css";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function MovieCard({ imagePath, rating, title, id }) {
   // need way to get access to id of clicked movie
-  // 
+  //
   return (
-    <Link to={`/movie/${id}`} >
+    <Link to={`/movie/${id}`}>
       <figure className="poster-container">
         <img
           className="movie-poster"
@@ -26,7 +26,6 @@ MovieCard.propTypes = {
   rating: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  handleSingleMovie: PropTypes.func.isRequired,
 };
 
 export default MovieCard;

@@ -19,8 +19,7 @@ function AllMovies({ moviesData, handleSingleMovie }) {
 }
 
 AllMovies.propTypes = {
-  moviesData: PropTypes.array.isRequired,
-  handleSingleMovie: PropTypes.func.isRequired,
+  moviesData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default AllMovies;

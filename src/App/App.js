@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 
 import "../App/App.css";
 // import movieData from "../Data/movieData";
-
-import { getAllMovies, getSingleMovie } from "../apiCalls";
+import { getAllMovies } from "../apiCalls";
 
 import AllMovies from "../Components/AllMovies/AllMovies";
 import MovieBlowUp from "../Components/MovieBlowUp/MovieBlowUp";
@@ -32,16 +31,6 @@ function App() {
   //   const singleMovie = movies.find((movie) => {
   //     return movie.id === id;
   //   });
-  const handleSingleMovie = (id) => {
-    getSingleMovie(id)
-      .then((singleMovieData) => {
-        console.log(singleMovieData)
-        return singleMovieData
-      })
-      .catch(() =>
-        setError("Oops...that movie is rotten...try picking a different one")
-      );
-    };
 
   // const viewHome = () => {
   //   setMovieBlowUp(false);
@@ -52,11 +41,11 @@ function App() {
       <nav>
         <h1 className="title">Rancid Tomatillos</h1>
       </nav>
-      <Routes>
-        <Route path="/" element={<AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />}/>
-        <Route path="/movie/:id" element={<MovieBlowUp handleSingleMovie={handleSingleMovie}/>} />
-      </Routes>
       {error && <h2>{error}</h2>}
+      <Routes>
+        <Route path="/" element={<AllMovies moviesData={movies} />} />
+        <Route path="/movie/:id" element={<MovieBlowUp />} />
+      </Routes>
       {/*!movieBlowUp ? (
         <AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />
       ) : (
