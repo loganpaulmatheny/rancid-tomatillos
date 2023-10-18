@@ -39,7 +39,7 @@ function App() {
   return (
     <main className="App">
       <nav>
-        <h1 className="title">Rancid Tomatillos</h1>
+        <h1 className="main-header">Rancid Tomatillos</h1>
       </nav>
       {error && <h2>{error}</h2>}
       <Routes>
