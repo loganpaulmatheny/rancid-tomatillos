@@ -21,6 +21,7 @@ function App() {
     getAllMovies()
       .then((movieData) => {
         setMovies(movieData.movies);
+        clearError();
       })
       .catch((error) => {
         if (error.message === "404") {
@@ -29,6 +30,10 @@ function App() {
           setError("OOPS rancid TOMATILLOS went bad, try again later");
         }
       });
+  };
+
+  const clearError = () => {
+    setError("");
   };
 
   // const handleSingleMovie = (id) => {
@@ -48,7 +53,16 @@ function App() {
       {error && <h2 className="movies-error">{error}</h2>}
       <Routes>
         <Route path="/" element={<AllMovies moviesData={movies} />} />
-        <Route path="/movie/:id" element={<MovieBlowUp />} />
+        <Route
+          path="/movie/:id"
+          element={
+            <MovieBlowUp
+              error={error}
+              setError={setError}
+              clearError={clearError}
+            />
+          }
+        />
       </Routes>
       {/*!movieBlowUp ? (
         <AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />
