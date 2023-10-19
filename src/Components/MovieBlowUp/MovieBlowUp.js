@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom";
 
 import { getSingleMovie } from "../../apiCalls";
 function MovieBlowUp() {
-  const [singleMovie, setSingleMovie] = useState([]);
+  const [singleMovie, setSingleMovie] = useState({});
   const [error, setError] = useState("");
 
   const movieId = useParams().id;
@@ -16,22 +16,32 @@ function MovieBlowUp() {
       .then((singleMovieData) => {
         setSingleMovie(singleMovieData.movie);
       })
-      .catch
-      // Update this similarly to the catch in App.js
-      // setError("Oops...that movie is rotten...try picking a different one")
-      ();
+      .catch((error) => {
+        if (error.message === "500" || error.message === "404") {
+          setError("Thats a RANCID URL, double check it and try again");
+        } else {
+          setError("OOPS rancid TOMATILLOS went bad, try again later");
+        }
+      });
   };
 
   useEffect(() => movieBlowUpDetails(), [movieId]);
+
+  const loading = () => {
+    if (error.length === 0 && Object.keys(singleMovie).length === 0) {
+      return true;
+    } else {
+      console.log(Object.keys(singleMovie).length);
+      return false;
+    }
+  };
 
   return (
     <div>
       {/* waiting on confirmation of 'right way' to do this */}
       {error && <h2 className="single-movie-error">{error}</h2>}
-      {Array.isArray(singleMovie) ? (
-        <h2>Loading...</h2>
-      ) : (
-        // Could put a loading component here...
+      {!error && Object.keys(singleMovie).length === 0 && <h2> Loading...</h2>}
+      {Object.keys(singleMovie).length > 0 && (
         <div className="single-movie-blowup-container">
           <h2>{singleMovie.title}</h2>
           <img

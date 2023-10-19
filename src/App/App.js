@@ -23,12 +23,10 @@ function App() {
         setMovies(movieData.movies);
       })
       .catch((error) => {
-        // needs some edits and lookup how to get useful information to this part of the app from apiCalls.js
-        console.log(error);
-        if (error === "404") {
-          setError("BAD URL: Double check your url and search again");
+        if (error.message === "404") {
+          setError("Thats a RANCID URL, double check it and try again");
         } else {
-          setError("rancid's down");
+          setError("OOPS rancid TOMATILLOS went bad, try again later");
         }
       });
   };
