@@ -7,6 +7,8 @@ import { useParams, Link } from "react-router-dom";
 import { getSingleMovie } from "../../apiCalls";
 function MovieBlowUp() {
   const [singleMovie, setSingleMovie] = useState([]);
+  const [error, setError] = useState("");
+
   const movieId = useParams().id;
 
   const movieBlowUpDetails = () => {
@@ -15,6 +17,7 @@ function MovieBlowUp() {
         setSingleMovie(singleMovieData.movie);
       })
       .catch
+      // Update this similarly to the catch in App.js
       // setError("Oops...that movie is rotten...try picking a different one")
       ();
   };
@@ -23,11 +26,13 @@ function MovieBlowUp() {
 
   return (
     <div>
+      {/* waiting on confirmation of 'right way' to do this */}
+      {error && <h2 className="single-movie-error">{error}</h2>}
       {Array.isArray(singleMovie) ? (
         <h2>Loading...</h2>
       ) : (
         // Could put a loading component here...
-        <div>
+        <div className="single-movie-blowup-container">
           <h2>{singleMovie.title}</h2>
           <img
             className="movie-blowup-poster"

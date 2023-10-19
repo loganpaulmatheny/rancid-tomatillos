@@ -22,9 +22,15 @@ function App() {
       .then((movieData) => {
         setMovies(movieData.movies);
       })
-      .catch(() =>
-        setError("Oops...looks like R A N C I D tomatillos rotted...")
-      );
+      .catch((error) => {
+        // needs some edits and lookup how to get useful information to this part of the app from apiCalls.js
+        console.log(error);
+        if (error === "404") {
+          setError("BAD URL: Double check your url and search again");
+        } else {
+          setError("rancid's down");
+        }
+      });
   };
 
   // const handleSingleMovie = (id) => {
@@ -41,7 +47,7 @@ function App() {
       <nav>
         <h1 className="main-header">Rancid Tomatillos</h1>
       </nav>
-      {error && <h2>{error}</h2>}
+      {error && <h2 className="movies-error">{error}</h2>}
       <Routes>
         <Route path="/" element={<AllMovies moviesData={movies} />} />
         <Route path="/movie/:id" element={<MovieBlowUp />} />
