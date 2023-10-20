@@ -15,7 +15,10 @@ import PropTypes from "prop-types";
 // - set the state to the result of this filtering
 
 
-function AllMovies({ moviesData, handleSingleMovie }) {
+function AllMovies({ moviesData }) {
+
+
+
   const movieCards = moviesData.map((movie) => {
     return (
       <MovieCard

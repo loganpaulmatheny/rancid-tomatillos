@@ -1,20 +1,26 @@
-function SearchMovies() {
+import { useEffect, useState } from "react"
+
+
+
+function SearchMovies({filterMovies}) {
 
   const [search, setSearch] = useState()
-
 // set state 
 // useEffect to run a filter function (which gets passed down as a prop App)
-// 
 
+useEffect(( )=> {
+  filterMovies(search);
+  // fire a
+}, [search])
 
   return (
     <form>
       <input
       type="text"
-      name="search titles"
-      value=""
-      //onChange call the function in APP that filters
-      
+      placeholder="Search for a movie"
+      name="search-titles"
+      value={search}
+      onChange={(event) => setSearch(event.target.value)}
       />
     </form>
   )
