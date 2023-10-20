@@ -20,14 +20,12 @@ describe("landing page", () => {
   })
 })
 
-it('should display error if user types incorrect URL path', () => {
-  // cy.visit('http://localhost:3000/unexpectedpath')
-
-  // get a p tag that displays an error message 
-  // get a button to return to the home page. use .click()
-  // after clicking home button, the URL should equal the base domain http://localhost:3000/
-
-  // can we pass setError from one component to another (app to movieBlowUp?)
-  // use useState to set error state in movieBlowUp?
-})
-
+describe("error handling", () => {
+  it('should display an error message when an error occurs', () => {
+    cy.visit('http://localhost:3000').intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
+      statusCode: 404, 
+    })
+    .get('.movies-error').should('be.visible')
+    .get('.movies-error').should('contain.text', 'Thats a RANCID URL, double check it and try again')
+  });
+});
