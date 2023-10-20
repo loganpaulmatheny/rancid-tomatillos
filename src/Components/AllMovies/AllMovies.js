@@ -2,7 +2,7 @@ import "./AllMovies.css";
 import MovieCard from "../MovieCards/MovieCards";
 import PropTypes from "prop-types";
 
-// add filtering/search functionality here in AllMovies component
+// add filtering/search functionality here in APP component
 // set state for search
 // useEffect?
 
@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
     // should not be case sensitive: toLowerCase()?
 // - startsWith()?
 // - set the state to the result of this filtering
+
 
 function AllMovies({ moviesData, handleSingleMovie }) {
   const movieCards = moviesData.map((movie) => {

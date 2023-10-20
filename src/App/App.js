@@ -10,7 +10,6 @@ import MovieBlowUp from "../Components/MovieBlowUp/MovieBlowUp";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  // const [movieBlowUp, setMovieBlowUp] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -32,18 +31,26 @@ function App() {
       });
   };
 
+  // - filter over the moviesData 
+    // - split the movie title based on (" ") to get an array of words.
+    // - use find() to search through the array to find the first word from 
+    // the title that starts with a user's search value. 
+    // should not be case sensitive: toLowerCase()?
+// - startsWith()?
+// - set the state to the result of this filtering
+
+function filterMovies(movies, searchTerms) {
+  const filteredMovies = movies.filter((movie) => {
+    const searchTermString = searchTerms.toLowerCase().join(" ")
+    return movie.title.toLowerCase().join(" ").includes(searchTermString)
+  })
+  // set movie state again here?
+}
+
+
   const clearError = () => {
     setError("");
   };
-
-  // const handleSingleMovie = (id) => {
-  //   const singleMovie = movies.find((movie) => {
-  //     return movie.id === id;
-  //   });
-
-  // const viewHome = () => {
-  //   setMovieBlowUp(false);
-  // };
 
   return (
     <main className="App">
@@ -64,15 +71,6 @@ function App() {
           }
         />
       </Routes>
-      {/*!movieBlowUp ? (
-        <AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />
-      ) : (
-        <MovieBlowUp
-          key={movieBlowUp.id}
-          movieBlowUp={movieBlowUp}
-          viewHome={viewHome}
-        />
-      )*/}
     </main>
   );
 }
