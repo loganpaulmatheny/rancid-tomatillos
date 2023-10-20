@@ -5,29 +5,37 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import { getSingleMovie } from "../../apiCalls";
-function MovieBlowUp() {
-  const [singleMovie, setSingleMovie] = useState([]);
+function MovieBlowUp({ error, setError, clearError }) {
+  const [singleMovie, setSingleMovie] = useState({});
+
   const movieId = useParams().id;
 
   const movieBlowUpDetails = () => {
     getSingleMovie(movieId)
       .then((singleMovieData) => {
         setSingleMovie(singleMovieData.movie);
+        clearError();
       })
-      .catch
-      // setError("Oops...that movie is rotten...try picking a different one")
-      ();
+      .catch((error) => {
+        // console.log("error", typeof error);
+        // console.log("error message", error.message);
+        // console.log("error status", error.status);
+        if (error.message === "404") {
+          setError("Thats a RANCID URL, double check it and try again");
+        } else {
+          setError("OOPS rancid TOMATILLOS went bad, try again later");
+        }
+      });
   };
 
   useEffect(() => movieBlowUpDetails(), [movieId]);
 
   return (
     <div>
-      {Array.isArray(singleMovie) ? (
-        <h2>Loading...</h2>
-      ) : (
-        // Could put a loading component here...
-        <div>
+      {/* waiting on confirmation of 'right way' to do this */}
+      {!error && Object.keys(singleMovie).length === 0 && <h2> Loading...</h2>}
+      {Object.keys(singleMovie).length > 0 && (
+        <div className="single-movie-blowup-container">
           <h2>{singleMovie.title}</h2>
           <img
             className="movie-blowup-poster"
