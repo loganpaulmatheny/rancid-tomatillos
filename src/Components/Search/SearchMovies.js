@@ -20,7 +20,7 @@ function SearchMovies({ filterMovies, updateSearchMade }) {
     <form onSubmit={(event) => preventDefault(event)}>
       <input
         type="text"
-        placeholder="Search for a movie"
+        placeholder="Search by movie title"
         name="search-titles"
         value={search}
         onChange={(event) => {

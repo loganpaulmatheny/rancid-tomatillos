@@ -1,5 +1,19 @@
+.poster-container {
+  transition: transform 0.4s; 
+}
+
+.poster-container:hover{
+  transform: scale(1.04);
+  cursor: pointer;
+}
+
 .movie-poster {
-  width: 12rem;
-  height: 15.8125rem;
-  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.movie-title,
+.movie-rating {
+text-align: center;
 }

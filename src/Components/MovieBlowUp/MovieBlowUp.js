@@ -29,25 +29,41 @@ function MovieBlowUp({ error, setError, clearError }) {
 
   return (
     <div>
+      {console.log(singleMovie)}
       {!error && Object.keys(singleMovie).length === 0 && <h2> Loading...</h2>}
       {Object.keys(singleMovie).length > 0 && (
-        <div className="single-movie-blowup-container">
-          <h2>{singleMovie.title}</h2>
+        <article className='single-movie-blowup-container'>
           <img
-            className="movie-blowup-poster"
+            className='movie-blowup-poster'
             src={singleMovie.poster_path}
             alt={`${singleMovie.title} poster`}
           />
-          <h3>Overview</h3>
-          <p>{singleMovie.overview}</p>
-          <ul>
-            <li>{singleMovie.average_rating}</li>
-            <li>{singleMovie.release_date}</li>
-          </ul>
-          <Link to="/">
+
+          <section className='single-movie-info'>
+            <img
+              className='movie-backdrop'
+              src={singleMovie.backdrop_path}
+              alt={`${singleMovie.title} poster backdrop`}
+            />
+            <h2>{singleMovie.title}</h2>
+            <div className='synopsis'>
+              <h3>Synopsis</h3>
+              <p>{singleMovie.overview}</p>
+            </div>
+            <ul>
+              <li>{singleMovie.average_rating}★</li>
+              <li>
+                Released{" "}
+                {singleMovie.release_date.split("-").join("").slice(0, -4)}
+              </li>
+              <li>Revenue {singleMovie.revenue}</li>
+              <li>{singleMovie.runtime} mins</li>
+            </ul>
+          </section>
+          <Link to='/'>
             <button>Return to all movies</button>
           </Link>
-        </div>
+        </article>
       )}
     </div>
   );

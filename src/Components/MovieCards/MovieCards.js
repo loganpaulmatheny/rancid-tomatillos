@@ -15,7 +15,7 @@ function MovieCard({ imagePath, rating, title, id }) {
           alt={`${title} poster`}
         />
         <p className="movie-title">{title}</p>
-        <p className="movie-rating">{rating}</p>
+        <p className="movie-rating">{rating}★</p>
       </figure>
     </Link>
   );
