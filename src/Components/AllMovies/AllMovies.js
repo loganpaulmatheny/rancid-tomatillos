@@ -24,7 +24,6 @@ function AllMovies({ moviesData }) {
 
   const filterMovies = (searchTerms) => {
     console.log("search terms", searchTerms);
-    // if (searchTerms !== undefined) {
     const searchResults = moviesData.filter((movie) => {
       const searchTermString = searchTerms.toLowerCase().split(" ").join("");
       return movie.title
@@ -41,7 +40,6 @@ function AllMovies({ moviesData }) {
       setFilteredMovies([...moviesData]);
     } else {
       setFilteredMovies(searchResults);
-      // }
     }
   };
 

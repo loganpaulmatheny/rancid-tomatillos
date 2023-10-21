@@ -5,6 +5,10 @@ function SearchMovies({ filterMovies }) {
   // set state
   // useEffect to run a filter function (which gets passed down as a prop App)
 
+  const preventDefault = (event) => {
+    event.preventDefault();
+  };
+
   useEffect(() => {
     filterMovies(search);
   }, [search]);
@@ -16,7 +20,10 @@ function SearchMovies({ filterMovies }) {
         placeholder="Search for a movie"
         name="search-titles"
         value={search}
-        onChange={(event) => setSearch(event.target.value)}
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+        onSubmit={(event) => preventDefault(event)}
       />
     </form>
   );
