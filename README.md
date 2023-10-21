@@ -34,7 +34,12 @@ Rancid tomatillos is a movie rating application, that allows a user to search fo
 This is a group project during Mod 3 at Turing School of Software & Design. We were given approximately 2 weeks to create this project from scratch using the [provided comp](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html).
 
 ## Learning Goals:
+- Gain competency with React fundamentals
+- Test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router
 
+- ## Learning Goals:
 - Gain competency with React fundamentals
 - Test React components & asynchronous JS
 - Practice refactoring
