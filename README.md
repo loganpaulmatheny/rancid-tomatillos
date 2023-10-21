@@ -1,8 +1,3 @@
-- [ ] Overview of project and goals
-- [ ] Overview of technologies used, challenges, wins, and any other reflections
-- [ ] Screenshots/gifs of your app
-- [ ] Links to contributors’ GitHub profiles and any applicable repos/deployed site
-
 # 🥫 rancid TOMATILLOS
 
 <div align="center">
