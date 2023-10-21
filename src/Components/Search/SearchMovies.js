@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 function SearchMovies({ filterMovies }) {
   const [search, setSearch] = useState("");
@@ -14,7 +15,7 @@ function SearchMovies({ filterMovies }) {
   }, [search]);
 
   return (
-    <form>
+    <form onSubmit={(event) => preventDefault(event)}>
       <input
         type="text"
         placeholder="Search for a movie"
@@ -23,10 +24,13 @@ function SearchMovies({ filterMovies }) {
         onChange={(event) => {
           setSearch(event.target.value);
         }}
-        onSubmit={(event) => preventDefault(event)}
       />
     </form>
   );
 }
+
+SearchMovies.propTypes = {
+  filterMovies: PropTypes.func,
+};
 
 export default SearchMovies;

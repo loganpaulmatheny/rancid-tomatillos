@@ -60,13 +60,9 @@ function MovieBlowUp({ error, setError, clearError }) {
 // {movieBlowupDetails}
 
 MovieBlowUp.propTypes = {
-  movieBlowUp: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired,
-    average_rating: PropTypes.number.isRequired,
-    release_date: PropTypes.string.isRequired,
-  }),
+  error: PropTypes.string,
+  setError: PropTypes.func,
+  clearError: PropTypes.func,
 };
 
 export default MovieBlowUp;

@@ -1,7 +1,7 @@
 import "./AllMovies.css";
 import MovieCard from "../MovieCards/MovieCards";
 import PropTypes from "prop-types";
-import SearchMovies from "../Search/search";
+import SearchMovies from "../Search/SearchMovies";
 import { useState, useEffect } from "react";
 
 // add filtering/search functionality here in APP component
@@ -65,8 +65,29 @@ function AllMovies({ moviesData }) {
   );
 }
 
+// AllMovies.propTypes = {
+//   moviesData: PropTypes.arrayOf(PropTypes.object).isRequired,
+// };
+// {
+//   "id": 694919,
+//   "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+//   "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+//   "title": "Money Plane",
+//   "average_rating": 6.666666666666667,
+//   "release_date": "2020-09-29"
+// },
+
 AllMovies.propTypes = {
-  moviesData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  moviesData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      poster_path: PropTypes.string,
+      backdrop_path: PropTypes.string,
+      title: PropTypes.string,
+      average_rating: PropTypes.number,
+      release_date: PropTypes.string,
+    })
+  ),
 };
 
 export default AllMovies;
