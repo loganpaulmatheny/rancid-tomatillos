@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-function SearchMovies({ filterMovies }) {
+function SearchMovies({ filterMovies, updateSearchMade }) {
   const [search, setSearch] = useState("");
-  // set state
-  // useEffect to run a filter function (which gets passed down as a prop App)
 
   const preventDefault = (event) => {
     event.preventDefault();
   };
 
   useEffect(() => {
+    if (search.length === 1) {
+      updateSearchMade()
+    }
     filterMovies(search);
   }, [search]);
+
 
   return (
     <form onSubmit={(event) => preventDefault(event)}>
@@ -27,5 +30,9 @@ function SearchMovies({ filterMovies }) {
     </form>
   );
 }
+
+SearchMovies.propTypes = {
+  filterMovies: PropTypes.func.isRequired,
+};
 
 export default SearchMovies;
