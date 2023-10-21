@@ -48,6 +48,7 @@ describe("Selected Movie", () => {
   it("The movie blowup should persist on a reload", () => {
     cy.visit("http://localhost:3000/movie/436270")
       .wait("@getSingleMovie")
+      .reload()
       .url()
       .should("include", "/436270")
       .get(".single-movie-blowup-container")

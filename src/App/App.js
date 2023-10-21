@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "../App/App.css";
-// import movieData from "../Data/movieData";
+
 import { getAllMovies } from "../apiCalls";
 
 import AllMovies from "../Components/AllMovies/AllMovies";

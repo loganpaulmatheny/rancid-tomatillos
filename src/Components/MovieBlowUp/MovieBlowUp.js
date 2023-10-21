@@ -17,9 +17,6 @@ function MovieBlowUp({ error, setError, clearError }) {
         clearError();
       })
       .catch((error) => {
-        // console.log("error", typeof error);
-        // console.log("error message", error.message);
-        // console.log("error status", error.status);
         if (error.message === "404") {
           setError("Thats a RANCID URL, double check it and try again");
         } else {
@@ -32,7 +29,6 @@ function MovieBlowUp({ error, setError, clearError }) {
 
   return (
     <div>
-      {/* waiting on confirmation of 'right way' to do this */}
       {!error && Object.keys(singleMovie).length === 0 && <h2> Loading...</h2>}
       {Object.keys(singleMovie).length > 0 && (
         <div className="single-movie-blowup-container">
@@ -50,19 +46,17 @@ function MovieBlowUp({ error, setError, clearError }) {
           </ul>
           <Link to="/">
             <button>Return to all movies</button>
-            {/* When this is clicked run a function that resets the state of the singleMovie back to empty array, this function should be in this file, it should be named something like clearSingleMovieState, don't just change it..., use a spread operator...?  */}
           </Link>
         </div>
       )}
     </div>
   );
 }
-// {movieBlowupDetails}
 
 MovieBlowUp.propTypes = {
-  error: PropTypes.string,
-  setError: PropTypes.func,
-  clearError: PropTypes.func,
+  error: PropTypes.string.isRequired,
+  setError: PropTypes.func.isRequired,
+  clearError: PropTypes.func.isRequired,
 };
 
 export default MovieBlowUp;
