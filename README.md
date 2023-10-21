@@ -39,16 +39,15 @@ This is a group project during Mod 3 at Turing School of Software & Design. We w
 - Practice refactoring
 - Create a multi-page UX using Router
 
-- ## Learning Goals:
-- Gain competency with React fundamentals
-- Test React components & asynchronous JS
-- Practice refactoring
-- Create a multi-page UX using Router
+- ## Challenges:
+- React: This was both of our first react applications. We enjoyed learning the new library/framework as it allows for more rapid application development than vanilla JS alone.
+- Search: Creating search functionality that worked well with the phases of the react component lifecycle proved slightly challenging. We used specific ternaries as well as a state to determine if a search had been made in the application yet, which assisted our ability to display if the movie posters were loading or if there was no movie meeting that search criteria.
+
 
 ## Installation Instructions:
 
 1. Fork this repository.
-2. Clone it to your local machine using: `git clone git@github.com:loganpaulmatheny/rancid-tomatillos.git`
+2. Clone it to your local machine using the green `<> CODE` button and pasting that into your terminal with the the command: `git clone <paste here>`
 3. Run the command: `cd rancid-tomatillos`
 4. Run the command: `npm install`
 5. Run the command: `npm start`
