@@ -47,7 +47,7 @@ This is a group project during Mod 3 at Turing School of Software & Design. We w
 
 ## Installation Instructions:
 
-View on [GitHub Pages](<(loganpaulmatheny.github.io./rancid-tomatillos/)>)
+View on [GitHub Pages](https://loganpaulmatheny.github.io/rancid-tomatillos/)
 
 Login information:
 
