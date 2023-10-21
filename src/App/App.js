@@ -43,7 +43,7 @@ function App() {
       </nav>
       {error && <h2 className="movies-error">{error}</h2>}
       <Routes>
-        <Route path="/" element={<AllMovies moviesData={movies} />} />
+        <Route path="/" element={!error && <AllMovies moviesData={movies} />} />
         <Route
           path="/movie/:id"
           element={
