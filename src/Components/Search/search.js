@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 
-
-
 function SearchMovies({filterMovies}) {
 
   const [search, setSearch] = useState()
@@ -10,7 +8,6 @@ function SearchMovies({filterMovies}) {
 
 useEffect(( )=> {
   filterMovies(search);
-  // fire a
 }, [search])
 
   return (
