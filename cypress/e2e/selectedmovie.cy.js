@@ -44,4 +44,9 @@ describe("Selected Movie", () => {
       .first()
       .contains("p", "Black Adam");
   });
+
+  it("The movie blowup should persist on a reload", () => {
+    cy.visit("http://localhost:3000/movie/436270")
+      .wait("@getSingleMovie")
+  })
 });

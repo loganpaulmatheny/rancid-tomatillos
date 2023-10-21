@@ -8,9 +8,9 @@ import { getAllMovies } from "../apiCalls";
 import AllMovies from "../Components/AllMovies/AllMovies";
 import MovieBlowUp from "../Components/MovieBlowUp/MovieBlowUp";
 
+
 function App() {
   const [movies, setMovies] = useState([]);
-  // const [movieBlowUp, setMovieBlowUp] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -36,15 +36,6 @@ function App() {
     setError("");
   };
 
-  // const handleSingleMovie = (id) => {
-  //   const singleMovie = movies.find((movie) => {
-  //     return movie.id === id;
-  //   });
-
-  // const viewHome = () => {
-  //   setMovieBlowUp(false);
-  // };
-
   return (
     <main className="App">
       <nav>
@@ -64,15 +55,6 @@ function App() {
           }
         />
       </Routes>
-      {/*!movieBlowUp ? (
-        <AllMovies moviesData={movies} handleSingleMovie={handleSingleMovie} />
-      ) : (
-        <MovieBlowUp
-          key={movieBlowUp.id}
-          movieBlowUp={movieBlowUp}
-          viewHome={viewHome}
-        />
-      )*/}
     </main>
   );
 }
