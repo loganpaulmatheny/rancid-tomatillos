@@ -58,7 +58,7 @@ function AllMovies({ moviesData }) {
     <div>
       <SearchMovies filterMovies={filterMovies} />
       {filteredMovies.length === 0 && (
-        <h2>Looks like there's no movies with that title</h2>
+        <h2 className="no-match-msg">Looks like there's no movies with that title</h2>
       )}
       <div className="movie-container">{movieCards}</div>
     </div>

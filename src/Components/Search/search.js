@@ -14,7 +14,7 @@ function SearchMovies({ filterMovies }) {
   }, [search]);
 
   return (
-    <form>
+    <form onSubmit={(event) => preventDefault(event)}>
       <input
         type="text"
         placeholder="Search for a movie"
@@ -23,7 +23,6 @@ function SearchMovies({ filterMovies }) {
         onChange={(event) => {
           setSearch(event.target.value);
         }}
-        onSubmit={(event) => preventDefault(event)}
       />
     </form>
   );
