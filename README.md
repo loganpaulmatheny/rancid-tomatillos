@@ -3,8 +3,8 @@
 <div align="center">
   
 ##### Built With: 
-<img height="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
-<img height="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" />
+<img height="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+<img height="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" />
 
 
 ##### Testing Technologies:
@@ -39,7 +39,7 @@ This is a group project during Mod 3 at Turing School of Software & Design. We w
 - Practice refactoring
 - Create a multi-page UX using Router
 
-- ## Challenges:
+## Challenges:
 - React: This was both of our first react applications. We enjoyed learning the new library/framework as it allows for more rapid application development than vanilla JS alone.
 - Search: Creating search functionality that worked well with the phases of the react component lifecycle proved slightly challenging. We used specific ternaries as well as a state to determine if a search had been made in the application yet, which assisted our ability to display if the movie posters were loading or if there was no movie meeting that search criteria.
 
