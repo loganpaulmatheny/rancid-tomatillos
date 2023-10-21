@@ -8,7 +8,7 @@
 
 
 ##### Testing Technologies:
-<img height="40px" src="https://avatars.githubusercontent.com/u/8908513?s=200&v=4"/>
+<img height="60px" src="https://avatars.githubusercontent.com/u/8908513?s=200&v=4"/>
 
 ### [View Deployed App](https://rancid-tomatillos-two-rho.vercel.app/)
 
