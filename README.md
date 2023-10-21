@@ -7,7 +7,7 @@
 
 <div align="center">
   
-##### Built With:
+##### Built With: 
 <img height="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
 <img height="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" />
 
@@ -15,7 +15,7 @@
 ##### Testing Technologies:
 <img height="40px" src="https://avatars.githubusercontent.com/u/8908513?s=200&v=4"/>
 
-### View on [GitHub Pages](<(loganpaulmatheny.github.io./rancid-tomatillos/)>)
+### [View Deployed App](https://rancid-tomatillos-two-rho.vercel.app/)
 
 </div>
 
@@ -46,10 +46,6 @@ This is a group project during Mod 3 at Turing School of Software & Design. We w
 - Create a multi-page UX using Router
 
 ## Installation Instructions:
-
-View on [GitHub Pages](https://loganpaulmatheny.github.io/rancid-tomatillos/)
-
-Login information:
 
 This application requires access to both our backend server repository and front-end repository.
 
