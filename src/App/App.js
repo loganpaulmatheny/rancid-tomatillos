@@ -38,7 +38,7 @@ function App() {
 
   return (
     <main className="App">
-      <nav>
+      <nav className="nav-bar">
         <h1 className="main-header">Rancid Tomatillos</h1>
       </nav>
       {error && <h2 className="movies-error">{error}</h2>}

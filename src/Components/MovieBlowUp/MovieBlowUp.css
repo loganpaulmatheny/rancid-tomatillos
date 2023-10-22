@@ -2,7 +2,47 @@
 * {
   color: white
 }
-.movie-blowup-poster {
-  width: 150px;
-  height: 300px;
+
+.movie-backdrop {
+  margin: auto;
+  position: fixed;
+  top: 6em;
+  left: 0;
+  max-width: 100%;
+  opacity: 0.3;
+  z-index: 2;
 }
+
+.movie-blowup-poster {
+    width: 18%;
+    margin: 4rem;
+    margin-bottom: 0;
+    border-radius: 8px;
+    z-index: -1;
+  }
+
+.single-movie-info {
+  min-width: 320px;
+  margin: 4rem 2rem 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: -1;
+}
+
+.synopsis {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  /* border: solid 1px rebeccapurple; */
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+}
+
+/* .movie-backdrop {
+  visibility: hidden;
+} */
