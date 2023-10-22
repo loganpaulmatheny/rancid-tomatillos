@@ -23,7 +23,6 @@ function App() {
         clearError();
       })
       .catch((error) => {
-        console.log("an error was found");
         if (error.message === "404") {
           setError("Thats a RANCID URL, double check it and try again");
         } else {
