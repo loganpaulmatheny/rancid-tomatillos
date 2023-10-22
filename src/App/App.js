@@ -8,7 +8,6 @@ import { getAllMovies } from "../apiCalls";
 import AllMovies from "../Components/AllMovies/AllMovies";
 import MovieBlowUp from "../Components/MovieBlowUp/MovieBlowUp";
 
-
 function App() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
@@ -24,6 +23,7 @@ function App() {
         clearError();
       })
       .catch((error) => {
+        console.log("an error was found");
         if (error.message === "404") {
           setError("Thats a RANCID URL, double check it and try again");
         } else {
