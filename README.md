@@ -26,7 +26,7 @@ Rancid tomatillos is a movie rating application, that allows a user to search fo
 
 ## Contributors:
 
-- Devin Altobello <- link github here
+- [Devin Altobello](https://github.com/daltobello)
 - [Logan Matheny](https://github.com/loganpaulmatheny)
 
 ## Context:
