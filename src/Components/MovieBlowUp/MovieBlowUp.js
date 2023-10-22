@@ -24,7 +24,6 @@ function MovieBlowUp({ error, setError, clearError }) {
         }
       });
   };
-
   useEffect(() => movieBlowUpDetails(), [movieId]);
 
   return (
@@ -32,7 +31,11 @@ function MovieBlowUp({ error, setError, clearError }) {
       {console.log(singleMovie)}
       {!error && Object.keys(singleMovie).length === 0 && <h2> Loading...</h2>}
       {Object.keys(singleMovie).length > 0 && (
-        <article className='single-movie-blowup-container'>
+        <article className='single-movie-blowup-container' style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${singleMovie.backdrop_path})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundColor: "fade(#FFFFFF, 50%)"
+        }}>
           <img
             className='movie-blowup-poster'
             src={singleMovie.poster_path}
@@ -40,11 +43,11 @@ function MovieBlowUp({ error, setError, clearError }) {
           />
 
           <section className='single-movie-info'>
-            <img
+            {/* <img
               className='movie-backdrop'
               src={singleMovie.backdrop_path}
               alt={`${singleMovie.title} poster backdrop`}
-            />
+            /> */}
             <h2>{singleMovie.title}</h2>
             <div className='synopsis'>
               <h3>Synopsis</h3>

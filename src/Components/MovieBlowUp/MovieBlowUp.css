@@ -18,7 +18,7 @@
     margin: 4rem;
     margin-bottom: 0;
     border-radius: 8px;
-    z-index: -1;
+    z-index: 1;
   }
 
 .single-movie-info {
@@ -27,7 +27,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  z-index: -1;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.single-movie-info * {
+  background-color: transparent;
 }
 
 .synopsis {
@@ -43,6 +48,9 @@ li {
   list-style: none;
 }
 
+button {
+  z-index: 3;
+}
 /* .movie-backdrop {
   visibility: hidden;
 } */
