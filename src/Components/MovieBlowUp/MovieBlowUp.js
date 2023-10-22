@@ -5,8 +5,9 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import { getSingleMovie } from "../../apiCalls";
-function MovieBlowUp({ error, setError, clearError }) {
+function MovieBlowUp() {
   const [singleMovie, setSingleMovie] = useState({});
+  const [singleMovieError, setSingleMovieError] = useState("");
 
   const movieId = useParams().id;
 
@@ -14,13 +15,16 @@ function MovieBlowUp({ error, setError, clearError }) {
     getSingleMovie(movieId)
       .then((singleMovieData) => {
         setSingleMovie(singleMovieData.movie);
-        clearError();
       })
       .catch((error) => {
         if (error.message === "404") {
-          setError("Thats a RANCID URL, double check it and try again");
+          setSingleMovieError(
+            "Thats a RANCID URL, double check it and try again"
+          );
         } else {
-          setError("OOPS rancid TOMATILLOS went bad, try again later");
+          setSingleMovieError(
+            "OOPS rancid TOMATILLOS went bad, try again later"
+          );
         }
       });
   };
@@ -28,28 +32,34 @@ function MovieBlowUp({ error, setError, clearError }) {
 
   return (
     <div>
-      {console.log(singleMovie)}
-      {!error && Object.keys(singleMovie).length === 0 && <h2> Loading...</h2>}
+      {singleMovieError && <h2 className="movies-error">{singleMovieError}</h2>}
+      {!singleMovieError && Object.keys(singleMovie).length === 0 && (
+        <h2> Loading...</h2>
+      )}
       {Object.keys(singleMovie).length > 0 && (
-        <article className='single-movie-blowup-container' style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${singleMovie.backdrop_path})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundColor: "fade(#FFFFFF, 50%)"
-        }}>
+        <article
+          className="single-movie-blowup-container"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${singleMovie.backdrop_path})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundColor: "fade(#FFFFFF, 50%)",
+          }}
+        >
           <img
-            className='movie-blowup-poster'
+            className="movie-blowup-poster"
             src={singleMovie.poster_path}
             alt={`${singleMovie.title} poster`}
           />
 
-          <section className='single-movie-info'>
+          <section className="single-movie-info">
             {/* <img
               className='movie-backdrop'
               src={singleMovie.backdrop_path}
               alt={`${singleMovie.title} poster backdrop`}
             /> */}
             <h2>{singleMovie.title}</h2>
-            <div className='synopsis'>
+            <div className="synopsis">
               <h3>Synopsis</h3>
               <p>{singleMovie.overview}</p>
             </div>
@@ -61,14 +71,20 @@ function MovieBlowUp({ error, setError, clearError }) {
                 {singleMovie.release_date.split("-").join("").slice(0, -4)}
               </li>
               <li>
-                Budget {`${singleMovie.budget}` === "0" 
-                ? "Unknown" : `$${singleMovie.budget}`}
+                Budget{" "}
+                {`${singleMovie.budget}` === "0"
+                  ? "Unknown"
+                  : `$${singleMovie.budget}`}
               </li>
-              <li>Revenue {`${singleMovie.revenue}` === "0" 
-              ? "Unknown" : `$${singleMovie.revenue}`}</li>
+              <li>
+                Revenue{" "}
+                {`${singleMovie.revenue}` === "0"
+                  ? "Unknown"
+                  : `$${singleMovie.revenue}`}
+              </li>
             </ul>
           </section>
-          <Link to='/'>
+          <Link to="/">
             <button>Return to all movies</button>
           </Link>
         </article>
@@ -78,9 +94,7 @@ function MovieBlowUp({ error, setError, clearError }) {
 }
 
 MovieBlowUp.propTypes = {
-  error: PropTypes.string.isRequired,
-  setError: PropTypes.func.isRequired,
-  clearError: PropTypes.func.isRequired,
+  moviesData: PropTypes.array,
 };
 
 export default MovieBlowUp;
