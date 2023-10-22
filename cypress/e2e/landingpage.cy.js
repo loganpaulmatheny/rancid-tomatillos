@@ -35,7 +35,7 @@ describe("landing page", () => {
   it('should display message if no results match search criteria', () => {
     cy.get('input[type="text"]').type('blah blah blah')
     .get('.no-match-msg').should('be.visible')
-    .get('.no-match-msg').should('contain.text', 'Looks like there\'s no movies with that title')
+    .get('.no-match-msg').should('contain.text', 'Looks like there\'s no movie with that title')
   })
 })
 
