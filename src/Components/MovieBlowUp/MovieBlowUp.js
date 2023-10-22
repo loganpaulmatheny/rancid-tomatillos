@@ -52,12 +52,17 @@ function MovieBlowUp({ error, setError, clearError }) {
             </div>
             <ul>
               <li>{singleMovie.average_rating}★</li>
+              <li>{singleMovie.runtime} mins</li>
               <li>
                 Released{" "}
                 {singleMovie.release_date.split("-").join("").slice(0, -4)}
               </li>
-              <li>Revenue {singleMovie.revenue}</li>
-              <li>{singleMovie.runtime} mins</li>
+              <li>
+                Budget {`${singleMovie.budget}` === "0" 
+                ? "Unknown" : `$${singleMovie.budget}`}
+              </li>
+              <li>Revenue {`${singleMovie.revenue}` === "0" 
+              ? "Unknown" : `$${singleMovie.revenue}`}</li>
             </ul>
           </section>
           <Link to='/'>
