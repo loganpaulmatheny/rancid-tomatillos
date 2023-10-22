@@ -22,7 +22,7 @@ Rancid tomatillos is a movie rating application, that allows a user to search fo
 
 ## Preview of App:
 
-// PUT PREVIEW OF APP HERE //
+<img width="1540" alt="rancid" src="https://user-images.githubusercontent.com/46095125/277168995-02aa883d-118c-49a9-b236-e906b6b5bdc0.png">
 
 ## Contributors:
 
