@@ -8,7 +8,6 @@ import { getAllMovies } from "../apiCalls";
 import AllMovies from "../Components/AllMovies/AllMovies";
 import MovieBlowUp from "../Components/MovieBlowUp/MovieBlowUp";
 
-
 function App() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
@@ -46,13 +45,11 @@ function App() {
         <Route path="/" element={!error && <AllMovies moviesData={movies} />} />
         <Route
           path="/movie/:id"
-          element={
-            <MovieBlowUp
-              error={error}
-              setError={setError}
-              clearError={clearError}
-            />
-          }
+          element={<MovieBlowUp moviesData={movies} />}
+        />
+        <Route
+          path="/:homeError"
+          element={<h2>Thats a RANCID URL, double check it and try again</h2>}
         />
       </Routes>
     </main>
