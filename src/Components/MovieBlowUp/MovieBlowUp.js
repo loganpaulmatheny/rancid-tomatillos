@@ -53,11 +53,6 @@ function MovieBlowUp() {
           />
 
           <section className="single-movie-info">
-            {/* <img
-              className='movie-backdrop'
-              src={singleMovie.backdrop_path}
-              alt={`${singleMovie.title} poster backdrop`}
-            /> */}
             <h2>{singleMovie.title}</h2>
             <div className="synopsis">
               <h3>Synopsis</h3>
@@ -92,9 +87,5 @@ function MovieBlowUp() {
     </div>
   );
 }
-
-MovieBlowUp.propTypes = {
-  moviesData: PropTypes.array,
-};
 
 export default MovieBlowUp;
